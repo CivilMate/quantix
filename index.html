@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Besi Kolom</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <h1>Kalkulator Besi Kolom</h1>
+    <p>kalkulator khusus untuk perhitungan besi kolom. masukan data yang tepat pada beberapa 
+      data input dibawah ini untuk hasil yang <strong>93.3%</strong> akurat </p>
+  <label>Jumlah Kolom</label>
+  <input type="number" id="jumlahKolom" value="4">
+
+  <label>Tinggi Kolom (meter)</label>
+  <input type="number" step="0.01" id="tinggiKolom" value="3">
+
+  <label>Besi Pokok per Kolom (contoh: 4)</label>
+  <input type="number" id="besiPokok" value="4">
+
+  <label>Panjang Kait Tambahan (meter)</label>
+  <input type="number" step="0.01" id="kait" value="0.2">
+
+  <label>Diameter Besi Pokok (mm)</label>
+  <input type="number" id="diameterPokok" value="12">
+
+  <label>Diameter Beugel (mm)</label>
+  <input type="number" id="diameterBeugel" value="8">
+
+  <label>Jarak Beugel Rapat (meter)</label>
+  <input type="number" step="0.01" id="jarakBeugelRapat" value="0.1">
+
+  <label>Jarak Beugel Renggang (meter)</label>
+  <input type="number" step="0.01" id="jarakBeugelRenggang" value="0.15">
+
+  <label>Keliling Beugel (meter)</label>
+  <input type="number" step="0.01" id="kelilingBeugel" value="0.7">
+
+  <button onclick="hitungBesi()">Hitung</button>
+
+  <div class="result" id="hasil"></div>
+<script src="script.js"></script>
+</body>
+</html>
