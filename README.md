@@ -1,4 +1,4 @@
-# 🧱 RebarCalc – Steel Column Estimator
+# 🧱 CalcForge-quantix – Steel Column Estimator
 
 Simple web-based calculator to estimate quantity & weight of rebar used in reinforced concrete columns.
 
@@ -8,8 +8,6 @@ Simple web-based calculator to estimate quantity & weight of rebar used in reinf
 - Includes real unit rounding & weights in kg
 - Responsive layout for desktop/mobile
 
-## Live Demo
-🔗 https://username.github.io/rebarcalc/
 
 ## Made by
-👷‍♂️ Zulkarnain Ziaulhaq – SMK TKJ student passionate in civil tech innovation.
+👷‍♂️ Zulkarnain Ziaulhaq – SMK DWIJA BHAKTI 1 JOMBANG student passionate in civil tech innovation.
