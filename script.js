@@ -14,7 +14,7 @@ const tabelBobotBesi = {
   22: 2.986,
   25: 3.856,
   28: 4.837,
-  32: 6.318,
+  32: 6.318
 };
 
 function hitungBesi() {
@@ -27,6 +27,7 @@ function hitungBesi() {
   const jarakBeugelRapat = parseFloat(document.getElementById('jarakBeugelRapat').value);
   const jarakBeugelRenggang = parseFloat(document.getElementById('jarakBeugelRenggang').value);
   const kelilingBeugel = parseFloat(document.getElementById('kelilingBeugel').value);
+  const sistemBeugel = document.getElementById('sistemBeugel').value; // ambil pilihan
 
   // Besi Pokok
   const panjangPerBatangPokok = tinggiKolom + kait;
@@ -34,20 +35,30 @@ function hitungBesi() {
   const batangPokok = Math.ceil(totalPanjangPokok / 12);
   const beratPokok = totalPanjangPokok * tabelBobotBesi[diameterPokok];
 
-  // Beugel rapat & renggang
-  const panjangRapat = Math.min(0.5, tinggiKolom / 6);
-  const panjangRenggang = tinggiKolom - (2 * panjangRapat);
+  // Hitung jumlah beugel sesuai sistem
+  let totalBeugelPerKolom, beugelRapatBulat = 0, beugelRenggangBulat = 0;
 
-  const beugelRapat = panjangRapat / jarakBeugelRapat;
-  const beugelRenggang = panjangRenggang / jarakBeugelRenggang;
+  if (sistemBeugel === "rapatRenggang") {
+    const panjangRapat = Math.min(0.5, tinggiKolom / 6);
+    const panjangRenggang = tinggiKolom - (2 * panjangRapat);
 
-  const beugelRapatBulat = Math.ceil(beugelRapat);
-  const beugelRenggangBulat = Math.ceil(beugelRenggang);
+    const beugelRapat = panjangRapat / jarakBeugelRapat;
+    const beugelRenggang = panjangRenggang / jarakBeugelRenggang;
 
-  const totalBeugelPerKolom = (2 * beugelRapatBulat) + beugelRenggangBulat;
+    beugelRapatBulat = Math.ceil(beugelRapat);
+    beugelRenggangBulat = Math.ceil(beugelRenggang);
+
+    totalBeugelPerKolom = (2 * beugelRapatBulat) + beugelRenggangBulat;
+
+  } else if (sistemBeugel === "fullRapat") {
+    totalBeugelPerKolom = Math.ceil(tinggiKolom / jarakBeugelRapat);
+
+  } else if (sistemBeugel === "fullRenggang") {
+    totalBeugelPerKolom = Math.ceil(tinggiKolom / jarakBeugelRenggang);
+  }
+
   const totalBeugel = totalBeugelPerKolom * jumlahKolom;
-
- const totalPanjangBeugel = totalBeugel * kelilingBeugel;
+  const totalPanjangBeugel = totalBeugel * kelilingBeugel;
   const batangBeugel = Math.ceil(totalPanjangBeugel / 12);
   const beratBeugel = totalPanjangBeugel * tabelBobotBesi[diameterBeugel];
 
@@ -64,11 +75,8 @@ function hitungBesi() {
     Total panjang: ${totalPanjangBeugel.toFixed(2)} m<br>
     Jumlah lonjor (12m): <strong>${batangBeugel} batang</strong> (${(totalPanjangBeugel / 12).toFixed(2)})<br>
     Jumlah total beugel: <strong>${totalBeugel} buah</strong><br>
-    Per kolom: ${totalBeugelPerKolom} buah (${(2 * beugelRapatBulat)} rapat, ${beugelRenggangBulat} renggang)<br>
-    Berat total: <strong>${beratBeugel.toFixed(2)} kg</strong><br><br>
-
-    <u><strong>Hasil Asli (sebelum dibulatkan):</strong></u><br>
-    Beugel rapat: ${(beugelRapat * 2).toFixed(2)}<br>
-    Beugel renggang: ${beugelRenggang.toFixed(2)}<br>
+    Per kolom: ${totalBeugelPerKolom} buah
+    ${sistemBeugel === "rapatRenggang" ? ` (${(2 * beugelRapatBulat)} rapat, ${beugelRenggangBulat} renggang)` : ""}<br>
+    Berat total: <strong>${beratBeugel.toFixed(2)} kg</strong><br>
   `;
 }
