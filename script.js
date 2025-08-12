@@ -3,6 +3,20 @@ function beratBesi(diameter, panjang) {
   return beratPerMeter * panjang;
 }
 
+// Tabel bobot besi (kg/m)
+const tabelBobotBesi = {
+  6: 0.222,
+  8: 0.395,
+  10: 0.617,
+  12: 0.888,
+  16: 1.578,
+  20: 2.466,
+  22: 2.986,
+  25: 3.856,
+  28: 4.837,
+  32: 6.318,
+};
+
 function hitungBesi() {
   const jumlahKolom = parseInt(document.getElementById('jumlahKolom').value);
   const tinggiKolom = parseFloat(document.getElementById('tinggiKolom').value);
@@ -18,7 +32,7 @@ function hitungBesi() {
   const panjangPerBatangPokok = tinggiKolom + kait;
   const totalPanjangPokok = panjangPerBatangPokok * besiPokok * jumlahKolom;
   const batangPokok = Math.ceil(totalPanjangPokok / 12);
-  const beratPokok = totalPanjangPokok * (Math.pow(diameterPokok, 2) / 162);
+  const beratPokok = totalPanjangPokok * tabelBobotBesi[diameterPokok];
 
   // Beugel rapat & renggang
   const panjangRapat = Math.min(0.5, tinggiKolom / 6);
@@ -33,9 +47,9 @@ function hitungBesi() {
   const totalBeugelPerKolom = (2 * beugelRapatBulat) + beugelRenggangBulat;
   const totalBeugel = totalBeugelPerKolom * jumlahKolom;
 
-  const totalPanjangBeugel = totalBeugel * kelilingBeugel;
+ const totalPanjangBeugel = totalBeugel * kelilingBeugel;
   const batangBeugel = Math.ceil(totalPanjangBeugel / 12);
-  const beratBeugel = totalPanjangBeugel * (Math.pow(diameterBeugel, 2) / 162);
+  const beratBeugel = totalPanjangBeugel * tabelBobotBesi[diameterBeugel];
 
   // Output
   document.getElementById('hasil').innerHTML = `
