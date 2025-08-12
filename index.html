@@ -37,10 +37,18 @@
 
   <label>Keliling Beugel (meter)</label>
   <input type="number" step="0.01" id="kelilingBeugel" value="0.7">
+  <label for="sistemBeugel">Sistem Beugel:</label>
 
+  <select id="sistemBeugel">
+  <option value="rapatRenggang">Rapat + Renggang</option>
+  <option value="fullRapat">Full Rapat</option>
+  <option value="fullRenggang">Full Renggang</option>
+</select>
+  
   <button onclick="hitungBesi()">Hitung</button>
 
   <div class="result" id="hasil"></div>
 <script src="script.js"></script>
 </body>
 </html>
+
