@@ -4,7 +4,7 @@
       max-width: 600px;
       margin: auto;
       padding: 20px;
-      background: #afc2c7;
+      background-image: url('img/download (77).jpg');
     }
     p {
       max-width: 500px;
@@ -38,4 +38,5 @@
       background: white;
       padding: 15px;
       border-radius: 5px;
+
     }
