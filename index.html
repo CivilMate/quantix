@@ -7,10 +7,13 @@
  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="paragraph"> <p>Rebarcalc.</p></div>
+  <div class="container"><p> lorem ipsum sit dolor amet</p>
    <h1>Kalkulator Besi Kolom</h1>
-    <p>kalkulator khusus untuk perhitungan besi kolom pada estimasi untuk RAB (rencana anggaran biaya). masukan data yang tepat pada beberapa 
+    <p>kalkulator khusus untuk perhitungan besi kolom. masukan data yang tepat pada beberapa 
       data input dibawah ini untuk hasil yang <strong>93.3%</strong> akurat </p>
-  <label>Jumlah Kolom</label>
+  
+      <label>Jumlah Kolom</label>
   <input type="number" id="jumlahKolom" value="4">
 
   <label>Tinggi Kolom (meter)</label>
@@ -28,27 +31,27 @@
   <label>Diameter Beugel (mm)</label>
   <input type="number" id="diameterBeugel" value="8">
 
-  <label>Jarak Beugel Rapat (meter) 
-    <i style="opacity: 0.5;">*note jika kolom tidak terdapat perbedaan jarak, silahkan samakan data dengan yang ada di label renggang dan rapat*</i></label>
-  <input type="number" step="0.01" id="jarakBeugelRapat" value="0.1">
+  <label>Jarak Beugel Rapat (meter)</label>
+  <input type="number" step="0.01" id="jarakBeugelRapat" value="0.10">
 
   <label>Jarak Beugel Renggang (meter)</label>
   <input type="number" step="0.01" id="jarakBeugelRenggang" value="0.15">
 
   <label>Keliling Beugel (meter)</label>
   <input type="number" step="0.01" id="kelilingBeugel" value="0.7">
-  <label for="sistemBeugel">Sistem Beugel:</label>
 
-  <select id="sistemBeugel">
+  <label for="sistemBeugel">Sistem Beugel:</label>
+<select id="sistemBeugel">
   <option value="rapatRenggang">Rapat + Renggang</option>
   <option value="fullRapat">Full Rapat</option>
   <option value="fullRenggang">Full Renggang</option>
 </select>
-  
+
   <button onclick="hitungBesi()">Hitung</button>
 
   <div class="result" id="hasil"></div>
+  </div>
+  
 <script src="script.js"></script>
 </body>
 </html>
-
